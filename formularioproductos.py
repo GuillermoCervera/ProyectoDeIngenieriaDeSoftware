@@ -72,7 +72,7 @@ class FormularioProductos:
         if numero==1:
             mb.showinfo("Información", "Se actualizó el producto")
         else:
-            mb.showinfo("Información", "No existe ningún producto con dicho id")
+            mb.showinfo("Información", "No existe ningún producto con dicho ID")
 
     def consultar_act(self):
         datos=(self.idact.get(), )
@@ -83,10 +83,10 @@ class FormularioProductos:
         else:
             self.nombreact.set('')
             self.cantidadact.set('')
-            mb.showinfo("Información", "No existe ningún producto con dicho id")
+            mb.showinfo("Información", "No existe ningún producto con dicho ID")
 
     def borrado(self):
-        self.pagina4 = ttk.Frame(self.cuaderno1)
+        self.pagina4=ttk.Frame(self.cuaderno1)
         self.cuaderno1.add(self.pagina4, text="Dar de baja producto")
         self.labelframe4=ttk.LabelFrame(self.pagina4, text="Producto")        
         self.labelframe4.grid(column=0, row=0, padx=5, pady=10)
@@ -102,8 +102,8 @@ class FormularioProductos:
         datos=(self.idborra.get(), )
         numero=self.producto1.baja(datos)
         if numero==1:
-            mb.showinfo("Información", "Se dió de baja el producto con dicho id")
+            mb.showinfo("Información", "Se dió de baja el producto con dicho ID")
         else:
-            mb.showinfo("Información", "No existe ningún producto con dicho id")
+            mb.showinfo("Información", "No existe ningún producto con dicho ID")
 
 aplicacion1=FormularioProductos()
