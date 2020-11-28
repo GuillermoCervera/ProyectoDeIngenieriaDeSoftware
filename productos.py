@@ -17,7 +17,7 @@ class Productos:
         cone.commit()
         cone.close()
     
-    def recuperar_todos(self):
+    def lista_todos(self):
         cone=self.abrir()
         cursor=cone.cursor()
         sql="select id, nombre, cantidad from productos"

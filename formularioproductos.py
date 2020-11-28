@@ -54,7 +54,7 @@ class FormularioProductos:
         self.scrolledtext1.grid(column=0,row=1, padx=10, pady=10)
 
     def listar(self):
-        respuesta=self.producto1.recuperar_todos()
+        respuesta=self.producto1.lista_todos()
         self.scrolledtext1.delete("1.0", tk.END)        
         for fila in respuesta:
             self.scrolledtext1.insert(tk.END, "ID: "+str(fila[0])+
