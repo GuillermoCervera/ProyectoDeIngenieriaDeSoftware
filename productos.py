@@ -24,13 +24,6 @@ class Productos:
         cursor.execute(sql)
         return cursor.fetchall()
 
-    #def consulta(self, datos):
-        #cone=self.abrir()
-        #cursor=cone.cursor()
-        #sql="select nombre, cantidad from productos where id=%s"
-        #cursor.execute(sql, datos)
-        #return cursor.fetchall()
-
     def actualizacion(self, datos):
         cone=self.abrir()
         cursor=cone.cursor()
