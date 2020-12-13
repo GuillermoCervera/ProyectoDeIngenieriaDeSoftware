@@ -1,3 +1,5 @@
+#Guillermo Cervera
+
 import mysql.connector
 
 class Productos:
@@ -21,6 +23,13 @@ class Productos:
         cursor.execute(sql)
         return cursor.fetchall()
 
+    def consulta(self, datos):
+        cone=self.abrir()
+        cursor=cone.cursor()
+        sql="select CODIGO_PRODUCTO, NOMBRE_PRODUCTO, CANTIDAD_PRODUCTO from PRODUCTO where NOMBRE_PRODUCTO=%s"
+        cursor.execute(sql, datos)
+        return cursor.fetchall()
+
     def actualizacion(self, datos):
         cone=self.abrir()
         cursor=cone.cursor()
@@ -33,7 +42,7 @@ class Productos:
     def baja(self, datos):
         cone=self.abrir()
         cursor=cone.cursor()
-        sql="delete from PRODUCTO where CODIGO_PRODUCTO=%s"
+        sql="delete from PRODUCTO where NOMBRE_PRODUCTO=%s"
         cursor.execute(sql, datos)
         cone.commit()
         cone.close()
