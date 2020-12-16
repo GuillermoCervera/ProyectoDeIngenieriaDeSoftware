@@ -16,7 +16,7 @@ cursordb = connectiondb.cursor()
 def login():
     global root2
     root2 = Toplevel(root)
-    root2.title("Identificación")
+    root2.title("Iniciar sesión")
     root2.geometry("450x300")
     #root2.config(bg="lightgray")
 
@@ -43,14 +43,6 @@ def failed_destroy():
     failed_message.destroy()
 
 def logged():
-    #global logged_message
-    #logged_message = Toplevel(root2)
-    #logged_message.title("Welcome")
-    #logged_message.geometry("500x100")
-    #Label(logged_message, text="Login Successfully!... Welcome {} ".format(username_verification.get()), fg="green", font="bold").pack()
-    #Label(logged_message, text="").pack()
-    #Button(logged_message, text="Logout", bg="blue", fg='white', relief="groove", font=('arial', 12, 'bold'), command=logged_destroy).pack()
-    
     class FormularioProductos:
         root2.destroy()
         Exit()
@@ -66,7 +58,6 @@ def logged():
             self.consulta()
             self.actualizar()
             self.borrado()
-            #self.modificar()
             self.cuaderno1.grid(column=0, row=0, padx=10, pady=10)
             self.ventana1.mainloop()
             root.destroy()
