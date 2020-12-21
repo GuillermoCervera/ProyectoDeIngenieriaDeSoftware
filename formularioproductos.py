@@ -18,7 +18,6 @@ def login():
     root2 = Toplevel(root)
     root2.title("Iniciar sesión")
     root2.geometry("450x300")
-    #root2.config(bg="lightgray")
 
     global username_verification
     global password_verification
@@ -77,15 +76,28 @@ def logged():
             self.cantidadalta=tk.StringVar()
             self.entrycantidad=ttk.Entry(self.labelframe1, textvariable=self.cantidadalta)
             self.entrycantidad.grid(column=1, row=1, padx=4, pady=4)
+            #self.label1=ttk.Label(self.labelframe1, text="Cabecera:")
+            #self.label1.grid(column=0, row=2, padx=4, pady=4)
+            #self.codigocabecera=tk.StringVar()
+            #self.entrycabecera=ttk.Entry(self.labelframe1, textvariable=self.codigocabecera)
+            #self.entrycabecera.grid(column=1, row=2, padx=4, pady=4)
+            #self.label1=ttk.Label(self.labelframe1, text="Fecha:")
+            #self.label1.grid(column=0, row=3, padx=4, pady=4)
+            #self.fechamovimiento=tk.StringVar()
+            #self.entryfecha=ttk.Entry(self.labelframe1, textvariable=self.fechamovimiento)
+            #self.entryfecha.grid(column=1, row=3, padx=4, pady=4)
             self.boton1=ttk.Button(self.labelframe1, text="Dar de alta", command=self.agregar)
-            self.boton1.grid(column=1, row=2, padx=4, pady=4)
+            self.boton1.grid(column=1, row=4, padx=4, pady=4)
 
         def agregar(self):
             datos=(self.nombrealta.get(), self.cantidadalta.get())
+            #datos=(self.nombrealta.get(), self.cantidadalta.get(), self.codigocabecera.get(), self.fechamovimiento.get())
             self.producto1.alta(datos)
             mb.showinfo("Información", "El producto fue dado de alta")
             self.nombrealta.set("")
             self.cantidadalta.set("")
+            #self.codigocabecera.set("")
+            #self.fechamovimiento.set("")
 
         def listado_completo(self):
             self.pagina3=ttk.Frame(self.cuaderno1)
