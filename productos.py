@@ -11,10 +11,10 @@ class Productos:
     def alta(self, datos):
         cone=self.abrir()
         cursor=cone.cursor()
-        sql1="insert into PRODUCTO(NOMBRE_PRODUCTO, CANTIDAD_PRODUCTO) values (%s,%s)"
+        sql="insert into PRODUCTO(NOMBRE_PRODUCTO, CANTIDAD_PRODUCTO) values (%s,%s)"
         #sql2="insert into MOVIMIENTO(NOMBRE_PRODUCTO_MOVIMIENTO=%s, CANTIDAD_PRODUCTO_MOVIMIENTO=%s, CODIGO_CABECERA=%s, FECHA_MOVIMIENTO=%s) values(%s,%s,%s,%s)"
         #sql2="insert into MOVIMIENTO(CODIGO_TIPO_MOVIMIENTO=1, NOMBRE_PRODUCTO_MOVIMIENTO=NOMBRE_PRODUCTO, CANTIDAD_PRODUCTO_MOVIMIENTO=CANTIDAD_PRODUCTO, CODIGO_CABECERA=%s, FECHA_MOVIMIENTO=%s) values(%s,%s)"
-        cursor.execute(sql2, datos)
+        cursor.execute(sql, datos)
         cone.commit()
         cone.close()
     
@@ -38,7 +38,7 @@ class Productos:
         sql="update PRODUCTO set NOMBRE_PRODUCTO=%s, CANTIDAD_PRODUCTO=%s where CODIGO_PRODUCTO=%s"
         cursor.execute(sql, datos)
         cone.commit()
-        cone.close()
+        #cone.close()
         return cursor.rowcount
 
     def baja(self, datos):
