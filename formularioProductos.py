@@ -1,4 +1,4 @@
-#Guillermo Cervera
+# Guillermo Cervera
 
 from tkinter import *
 import tkinter.messagebox
@@ -9,10 +9,6 @@ from tkinter import ttk
 from tkinter import messagebox as mb
 from tkinter import scrolledtext as st
 import datosProductos
-
-#from reportlab.pdfgen import canvas
-#from reportlab.lib.pagesizes import letter
-#from reportlab.platypus import Image
 
 connectiondb = mysql.connector.connect(host="localhost", user="root", passwd="", database="DISTRIBUIDOR")
 cursordb = connectiondb.cursor()
@@ -58,8 +54,6 @@ def logged():
             self.cuaderno1=ttk.Notebook(self.ventana1)        
             self.alta_productos()
             self.listado_completo()
-            #self.consulta()
-            #self.generar()
             self.actualizar()
             self.borrado()
             self.cuaderno1.grid(column=0, row=0, padx=10, pady=10)
@@ -81,28 +75,15 @@ def logged():
             self.cantidadalta=tk.StringVar()
             self.entrycantidad=ttk.Entry(self.labelframe1, textvariable=self.cantidadalta)
             self.entrycantidad.grid(column=0, row=3, padx=4, pady=4)
-            #self.label1=ttk.Label(self.labelframe1, text="Cabecera:")
-            #self.label1.grid(column=0, row=2, padx=4, pady=4)
-            #self.codigocabecera=tk.StringVar()
-            #self.entrycabecera=ttk.Entry(self.labelframe1, textvariable=self.codigocabecera)
-            #self.entrycabecera.grid(column=1, row=2, padx=4, pady=4)
-            #self.label1=ttk.Label(self.labelframe1, text="Fecha:")
-            #self.label1.grid(column=0, row=3, padx=4, pady=4)
-            #self.fechamovimiento=tk.StringVar()
-            #self.entryfecha=ttk.Entry(self.labelframe1, textvariable=self.fechamovimiento)
-            #self.entryfecha.grid(column=1, row=3, padx=4, pady=4)
             self.boton1=ttk.Button(self.labelframe1, text="Dar de alta", command=self.agregar)
             self.boton1.grid(column=0, row=4, padx=4, pady=4)
 
         def agregar(self):
             datos=(self.nombrealta.get(), self.cantidadalta.get())
-            #datos=(self.nombrealta.get(), self.cantidadalta.get(), self.codigocabecera.get(), self.fechamovimiento.get())
             self.producto1.alta(datos)
             mb.showinfo("Información", "El producto fue dado de alta")
             self.nombrealta.set("")
             self.cantidadalta.set("")
-            #self.codigocabecera.set("")
-            #self.fechamovimiento.set("")
 
         def listado_completo(self):
                 self.pagina3=ttk.Frame(self.cuaderno1)
@@ -141,56 +122,6 @@ def logged():
                                               "\nNombre: "+fila[1]+
                                               "\nCantidad: "+str(fila[2])+"\n\n")
 
-        #def generar(self):
-            #pdf=canvas.Canvas("Reporte.pdf", pagesize=letter)
-            #pdf.setLineWidth(.3)
-            #pdf.drawImage('logo.png', 30, 700, 64, 64)
-            #pdf.setFont('Helvetica', 20)
-            #pdf.drawString(30,675,'Distribuidor de bebidas azucaradas')
-            #pdf.setFont('Helvetica', 12)
-            #pdf.drawString(30,650,'Número de factura: 1')
-            #pdf.drawString(500,675,"29/12/2020")
-            #pdf.line(480,672,580,672)
-            #pdf.drawString(30,625,'Atendido por:')
-            #pdf.line(120,622,580,622)
-            #pdf.drawString(120,625,"Guillermo Cervera")
-            #pdf.drawString(285,595,'Total productos:')
-            #pdf.drawString(500,595,"100")
-            #pdf.line(378,592,555,592)
-            #pdf.save()
-
-        #def consulta(self):
-            #self.pagina2=ttk.Frame(self.cuaderno1)
-            #self.cuaderno1.add(self.pagina2, text="Consultar productos")
-            #self.labelframe2=ttk.LabelFrame(self.pagina2, text="Consulta de productos")
-            #self.labelframe2.grid(column=0, row=0, padx=5, pady=10)
-            #self.label1=ttk.Label(self.labelframe2, text="Código:")
-            #self.label1.grid(column=0, row=0, padx=4, pady=4)
-            #self.CODIGO_PRODUCTO=tk.StringVar()
-            #self.entryCODIGO_PRODUCTO=ttk.Entry(self.labelframe2, textvariable=self.CODIGO_PRODUCTO, state="readonly")
-            #self.entryCODIGO_PRODUCTO.grid(column=1, row=0, padx=4, pady=4)
-
-            ##self.label2=ttk.Label(self.labelframe2, text="Nombre:")        
-            ##self.label2.grid(column=0, row=1, padx=4, pady=4)
-            ##self.NOMBRE_PRODUCTO=tk.StringVar()
-            ##self.entryNOMBRE_PRODUCTO=ttk.Entry(self.labelframe2, textvariable=self.NOMBRE_PRODUCTO)
-            ##self.entryNOMBRE_PRODUCTO.grid(column=1, row=1, padx=4, pady=4)
-
-            #self.label2=ttk.Label(self.labelframe2, text="Nombre:")
-            #self.label2.grid(column=0, row=1, padx=4, pady=4)
-            #self.opcion=tk.StringVar()
-            #bebidas=("bebida1","bebida2","bebida3","bebida4","bebida5")
-            #self.combobox1=ttk.Combobox(self.labelframe2, width=17, textvariable=self.opcion, values=bebidas)
-            #self.combobox1.current(0)
-            #self.combobox1.grid(column=1, row=1, padx=4, pady=4)
-            #self.label3=ttk.Label(self.labelframe2, text="Cantidad:")        
-            #self.label3.grid(column=0, row=2, padx=4, pady=4)
-            #self.CANTIDAD_PRODUCTO=tk.StringVar()
-            #self.entryCANTIDAD_PRODUCTO=ttk.Entry(self.labelframe2, textvariable=self.CANTIDAD_PRODUCTO, state="readonly")
-            #self.entryCANTIDAD_PRODUCTO.grid(column=1, row=2, padx=4, pady=4)
-            #self.boton1=ttk.Button(self.labelframe2, text="Consultar", command=self.consultar)
-            #self.boton1.grid(column=1, row=3, padx=4, pady=4)
-
         def consultar_listar(self):
             datos=(self.nombrelist.get(), )
             respuesta=self.producto1.consulta(datos)
@@ -219,15 +150,15 @@ def logged():
 
         def actualizar(self):
             self.pagina5=ttk.Frame(self.cuaderno1)
-            self.cuaderno1.add(self.pagina5, text="Actualizar/Modificar producto")
-            self.labelframe5=ttk.LabelFrame(self.pagina5, text="Actualización/Modificación de productos")
+            self.cuaderno1.add(self.pagina5, text="Modificar producto")
+            self.labelframe5=ttk.LabelFrame(self.pagina5, text="Modificación de productos")
             self.labelframe5.grid(column=0, row=0, padx=5, pady=10)
             #self.label1=ttk.Label(self.labelframe5, text="Código:")
             #self.label1.grid(column=0, row=0, padx=4, pady=4)
             self.codigoact=tk.StringVar()
             #self.entrycodigo=ttk.Entry(self.labelframe5, textvariable=self.codigoact, state="readonly")
             #self.entrycodigo.grid(column=1, row=0, padx=4, pady=4)
-            self.label2=ttk.Label(self.labelframe5, text="Nombre:")        
+            self.label2=ttk.Label(self.labelframe5, text="Nombre:")
             self.label2.grid(column=0, row=1, padx=4, pady=4)
             self.nombreact=tk.StringVar()
             self.entrynombre=ttk.Entry(self.labelframe5, textvariable=self.nombreact)
@@ -237,16 +168,21 @@ def logged():
             self.cantidadact=tk.StringVar()
             self.entrycantidad=ttk.Entry(self.labelframe5, textvariable=self.cantidadact)
             self.entrycantidad.grid(column=0, row=4, padx=4, pady=4)
+            self.label2=ttk.Label(self.labelframe5, text="Motivo:")
+            self.label2.grid(column=0, row=5, padx=4, pady=4)
+            self.motivoact=tk.StringVar()
+            self.entrymotivo=ttk.Entry(self.labelframe5, textvariable=self.motivoact)
+            self.entrymotivo.grid(column=0, row=6, padx=4, pady=4)
             self.boton1=ttk.Button(self.labelframe5, text="Consultar", command=self.consultar_act)
-            self.boton1.grid(column=0, row=5, padx=4, pady=4)
-            self.boton1=ttk.Button(self.labelframe5, text="Actualizar/Modificar", command=self.actualiza)
-            self.boton1.grid(column=0, row=6, padx=4, pady=4)
+            self.boton1.grid(column=0, row=7, padx=4, pady=4)
+            self.boton1=ttk.Button(self.labelframe5, text="Modificar", command=self.actualiza)
+            self.boton1.grid(column=0, row=8, padx=4, pady=4)
 
         def actualiza(self):
-            datos=(self.nombreact.get(), self.cantidadact.get(), self.codigoact.get())
+            datos=(self.nombreact.get(), self.cantidadact.get(), self.motivoact.get(), self.codigoact.get())
             numero=self.producto1.actualizacion(datos)
             if numero==1:
-                mb.showinfo("Información", "Se actualizó el producto")
+                mb.showinfo("Información", "Se modificó el producto")
             else:
                 mb.showinfo("Información", "No existe ningún producto como el consultado")
 
