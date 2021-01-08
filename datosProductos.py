@@ -30,10 +30,10 @@ class Productos:
         cursor.execute(sql, datos)
         return cursor.fetchall()
 
-    def actualizacion(self, datos):
+    def modificacion(self, datos):
         cone=self.abrir()
         cursor=cone.cursor()
-        sql="update PRODUCTO set NOMBRE_PRODUCTO=%s, CANTIDAD_PRODUCTO=%s, MOTIVO_MODIFICACION=%s where CODIGO_PRODUCTO=%s"
+        sql="update PRODUCTO set NOMBRE_PRODUCTO=%s, CANTIDAD_PRODUCTO=%s where CODIGO_PRODUCTO=%s"
         cursor.execute(sql, datos)
         cone.commit()
         #cone.close()

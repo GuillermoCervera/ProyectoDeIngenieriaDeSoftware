@@ -54,7 +54,7 @@ def logged():
             self.cuaderno1=ttk.Notebook(self.ventana1)        
             self.alta_productos()
             self.listado_completo()
-            self.actualizar()
+            self.modificar()
             self.borrado()
             self.cuaderno1.grid(column=0, row=0, padx=10, pady=10)
             self.ventana1.mainloop()
@@ -148,7 +148,7 @@ def logged():
                 self.cantidadact.set('')
                 mb.showinfo("Información", "No existe ningún producto como el consultado")
 
-        def actualizar(self):
+        def modificar(self):
             self.pagina5=ttk.Frame(self.cuaderno1)
             self.cuaderno1.add(self.pagina5, text="Modificar producto")
             self.labelframe5=ttk.LabelFrame(self.pagina5, text="Modificación de productos")
@@ -175,12 +175,12 @@ def logged():
             self.entrymotivo.grid(column=0, row=6, padx=4, pady=4)
             self.boton1=ttk.Button(self.labelframe5, text="Consultar", command=self.consultar_act)
             self.boton1.grid(column=0, row=7, padx=4, pady=4)
-            self.boton1=ttk.Button(self.labelframe5, text="Modificar", command=self.actualiza)
+            self.boton1=ttk.Button(self.labelframe5, text="Modificar", command=self.modifica)
             self.boton1.grid(column=0, row=8, padx=4, pady=4)
 
-        def actualiza(self):
-            datos=(self.nombreact.get(), self.cantidadact.get(), self.motivoact.get(), self.codigoact.get())
-            numero=self.producto1.actualizacion(datos)
+        def modifica(self):
+            datos=(self.nombreact.get(), self.cantidadact.get(), self.codigoact.get())
+            numero=self.producto1.modificacion(datos)
             if numero==1:
                 mb.showinfo("Información", "Se modificó el producto")
             else:
