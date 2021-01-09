@@ -44,7 +44,7 @@ def download_report():
         sh.write(4, 0, 'Email: distribuidor@email.com')
 
         sh.write(6, 0, 'Atendido por: Guillermo Cervera')
-        sh.write(7, 0, 'Fecha: 02/01/2021')
+        sh.write(7, 0, 'Fecha: 09/01/2021')
         sh.write(8, 0, 'Factura: 1')
 
         # Cabecera
